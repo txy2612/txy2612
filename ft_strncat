@@ -1,0 +1,33 @@
+char *ft_strncat(char *dest, char *src, unsigned int nb)
+//nb: The maximum number of characters to copy from src.
+{
+    char *p_dest;
+    
+    p_dest = dest;
+    while ( *p_dest != '\0')
+    {
+        p_dest++;
+    }
+    while (*src && nb > 0)
+    {
+        *p_dest = *src;
+        src++;
+        p_dest++;
+        nb--;
+    }
+    *p_dest = '\0';// dun forget this
+    return (dest);
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+    char    dest[200] = "Hello";
+    char    src[] = "How are you?";
+    unsigned nb = 3;
+    
+    printf("%s\n", dest);// dont forget \n [HelloHelloHow --> Hello     HelloHow]
+    ft_strncat(dest, src, 3);
+    printf("%s", dest);
+}
