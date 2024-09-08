@@ -1,0 +1,36 @@
+int ft_strncmp(char *s1, char *s2, unsigned int n)
+
+{
+    while ( n > 0 && *s1 != '\0' && *s2 != '\0' && *s1 == *s2)
+    {
+        s1++;
+        s2++;
+        n--;
+    }
+    if (n == '0')// ==
+    return (0);
+    return ( *s1 - *s2);
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+    char    str_a[] = "Helicopter";
+    char    str_b[] = "Heli";
+    char    str_c[] = "";
+    char    str_d[] = "Helihelicopter";
+    char    str_e[] = "Heli";
+    char    str_f[] = "Helihelicopter";
+    char    str_g[] = "Helicopter";
+    unsigned int    n = 10;
+    
+    printf( "s1 = %s, s2 = %s : %d\n ", str_a, str_b, ft_strncmp(str_a,str_b,n));
+    printf( "s1 = %s, s2 = %s : %d\n ", str_b, str_e, ft_strncmp(str_b,str_e,n));
+    printf( "s1 = \"%s\", s2 = \"%s\" : %d\n ", str_a, str_d, ft_strncmp(str_a,str_d,n));
+    printf( "s1 = \"%s\", s2 = \"%s\" : %d\n ", str_a, str_f, ft_strncmp(str_a,str_f,n));
+    printf( "s1 = \"%s\", s2 = \"%s\" : %d\n ", str_a, str_g, ft_strncmp(str_a,str_g,n));
+}
+// %d = digit , %s = string, \"%s\" = "string"
+//n = the maximum number of characters to compare from the start of the two strings
+//If n is zero, the function will not compare any characters and will return 0 immediately.
