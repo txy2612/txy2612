@@ -1,0 +1,45 @@
+char *ft_strstr(char *str, char *to_find)
+{
+    char    *p_str;
+    char    *p_tof;
+    
+    if ( *to_find == '\0')
+    return (str);
+    
+    while (*str)//loop thru each char
+    {
+        p_str = str;
+        p_tof = to_find;
+        
+        while ( *p_str == *p_tof)
+        {
+            p_str++;
+            p_tof++;
+        }
+        if (*p_tof == '\0')// exp 1st half match, but the other half doesnt, if they match untill substring reaches null , means whole thing match
+        return (str);
+        
+        str++; // bcz while (*str), so need to move on to next char in string
+    }
+    return 0;
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+    char    str_array[] = "Hello World";
+    char    tof_array[] = "Hello";
+    
+    result = ft_strstr( str_array, tof_array);
+    printf( "Found "%s" in "%s", tof_array, str_array)
+    
+}
+
+
+//o_find' is substring within the string 'str'.
+// to_find is FOUND,  return str.
+// to_find is an EMPTY string,  return str. 
+// to_find is NOT FOUND,  return NULL.
+
+// *p_tof reaches '\0', it means that all characters in to_find have been matched in sequence, starting from the current position of str.
