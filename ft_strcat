@@ -1,0 +1,33 @@
+char *ft_strcat(char *dest, char *src)
+{
+    char    *p_dest;
+    
+    p_dest = dest;//pointer points to beginning of dest string
+    while ( *p_dest != '\0')// this loop runs the pointer to the end of dest ,as it keeps running until reaches null in dest. At this point, dest_ptr is ready to receive characters from src.
+    {
+        p_dest++;
+    }
+    while (*src)
+    {
+        *p_dest = *src;// put * for both, copy the item fro src and locate the item into p_dest
+        src++;
+        p_dest++;
+    }
+    *p_dest = '\0';// put *
+    return (dest);
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+    char    dest[50] = "Wow";// put size
+    char    src[] = "Hello";
+    
+    printf("%s\n", dest); //dest b4 function is called
+    ft_strcat(dest, src);
+    printf("%s", dest);// dest aftr 
+}
+// while ( *p_dest != '\0') & not  while ( *dest != '\0')
+//we need to return dest , dest must remain unchanged
+//If dest were used in the loop condition, you would repeatedly check the start of the string and wouldn’t be able to move forward to find the end.
