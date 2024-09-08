@@ -1,0 +1,29 @@
+int ft_strcmp(char *s1, char *s2)
+
+{
+    while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2 )
+    {
+        s1++;
+        s2++;
+    }
+    return (*s1 - *s2);
+}
+
+#include <stdio.h>
+int main(void)
+{
+    char a[] = "Hello";
+    char b[] = "Hello";
+    char c[] = "Helloo";
+    char d[] = "World";
+    char e[] = "";
+
+    // Printing comparison results with correct format specifiers
+    printf("\"%s\" , \"%s\" : %d\n", a, b, ft_strcmp(a, b)); // Should print 0
+    printf(" s1 = \"%s\" s2 = \"%s\": %d\n", a, c, ft_strcmp(a, c)); // Should print a negative value
+    printf("Comparing \"%s\" with \"%s\": %d\n", a, d, ft_strcmp(a, d)); // Should print a positive value
+    printf("Comparing \"%s\" with \"%s\": %d\n", a, e, ft_strcmp(a, e)); // Should print a positive value
+
+    return 0;
+}
+
