@@ -1,0 +1,32 @@
+char *ft_strstr(char *str, char *to_find)
+{
+    char *p_str;
+    char *p_tof;
+
+    if (*to_find == '\0') // Handle the case where to_find is an empty string
+        return str;
+
+    while (*str) // Loop through each character in str
+    {
+        p_str = str;
+        p_tof = to_find;
+
+        // Compare str with to_find
+        while (*p_str && *p_tof && *p_str == *p_tof)
+        {
+            p_str++;
+            p_tof++;
+        }
+
+        // If we have reached the end of to_find, a match is found
+        if (*p_tof == '\0')
+            return str;
+
+        // Move str to the next character
+        str++;
+    }
+
+    // No match found
+    return NULL;
+}
+
