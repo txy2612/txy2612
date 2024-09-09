@@ -1,0 +1,23 @@
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);//we must return to the type of the current function (int ft...() -->return int)
+}
+
+/*#include <stdio.h>
+int	main(void)
+{
+	char	str1[] = "";
+	char	str2[] = "Hi there";
+	char	str3[] = "1234";
+
+	printf("%s, %d\n", str1, ft_strlen(str1));
+	printf("%s, %d\n", str2, ft_strlen(str2));
+	printf("%s, %d\n", str3, ft_strlen(str3)); 
+}*/
