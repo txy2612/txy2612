@@ -1,0 +1,57 @@
+char	*ft_strstr(char *str, char *to_find)
+{
+	int	i;// index for str
+	int	j;// index for to_find
+
+	if (to_find[0] == '\0')// if to_find is an empty substring , return str
+	{
+		return (str);
+	}
+	while (*str != '0')
+	{
+		i = 0;
+		j = 0;
+		while (str[i] == to_find[j] && to_find[j] != '\0')
+		{
+			i++;
+			j++;
+		}
+		if (to_find[j] == '\0')// dun forget if (bcz we are searching in an existing substring)
+			return(str);// == '\0'
+		str++;// always at the end of while loop
+	}
+	return (0);
+}
+
+#include <stdio.h>
+
+int main(void) {
+    char str1[] = "Hello, world!";
+    char to_find1[] = "world";
+    char to_find2[] = "Hello";
+    char to_find3[] = "!";
+    char to_find4[] = "foo";
+    char to_find5[] = ""; // Empty substring
+
+    // Test case 1: Substring present in the middle
+    char *result1 = ft_strstr(str1, to_find1);
+    printf("Test 1 - Search for '%s': %s\n", to_find1, result1 ? result1 : "Not found");
+
+    // Test case 2: Substring present at the beginning
+    char *result2 = ft_strstr(str1, to_find2);
+    printf("Test 2 - Search for '%s': %s\n", to_find2, result2 ? result2 : "Not found");
+
+    // Test case 3: Substring present at the end
+    char *result3 = ft_strstr(str1, to_find3);
+    printf("Test 3 - Search for '%s': %s\n", to_find3, result3 ? result3 : "Not found");
+
+    // Test case 4: Substring not present
+    char *result4 = ft_strstr(str1, to_find4);
+    printf("Test 4 - Search for '%s': %s\n", to_find4, result4 ? result4 : "Not found");
+
+    // Test case 5: Empty search string
+    char *result5 = ft_strstr(str1, to_find5);
+    printf("Test 5 - Search for an empty string: %s\n", result5 ? result5 : "Not found");
+
+    return 0;
+}
