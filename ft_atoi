@@ -1,0 +1,39 @@
+
+int	ft_atoi(char *str)
+{
+	int		sign;//keeps count of no. of -
+	int		n;
+
+	sign = 0;
+	n = 0;
+	if (!str)// return 0 is string str is empty/aka contains only null terminator
+		return (0);
+	while ((*str >= 9 && *str <= 13) || *str == 32)//skips all the spaces
+		++str;
+	while (*str == '+' || *str == ‘-‘)//keeps count of - sign and ignore + sign
+	{
+		if (*str == '-')
+			sign++;
+		++str;//move on to the next item 
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		n *= 10;
+		n += *str - '0';
+		++str;
+	}
+	if (!(sign % 2))// if number of - sign is even
+		return (n);// return n ,Hans its positive value
+	return (-n);// if not then prints - infront
+}
+
+	
+#include <stdio.h>
+int	main(void)
+{
+	char	str[] = " ---+--+1234ab567";
+	char	str2[] = "--12";
+
+	printf("%d\n", ft_atoi(str));
+	printf("%d", ft_atoi(str2));
+}
