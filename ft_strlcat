@@ -1,0 +1,39 @@
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;//keep tracks of how many char have been copied
+	unsigned int	dest_len;
+	unsigned int	src_len;
+
+	dest_len = 0;
+	src_len = 0;
+	i = 0;
+	while (dest[dest_len] != '\0')//calculate dest length
+	{
+		dest_len++;
+	}
+	while (src[src_len] != '\0')//counts the source length
+	{
+		src_len++;
+	}
+	if (size <= dest_len)
+		return (src_len + size);
+	while	(src[i] != '\0' && dest_len + i < size -1)
+	{
+		dest[dest_len + i] = src[i];//copies from src to dest, pasted after existing char in dest 
+		i++;
+	}
+	dest[dest_len + i] = '\0';
+	return (dest_len + src_len);
+}
+
+#include <stdio.h>
+int	main(void)
+{
+	char	dest[30] = "Hello ";
+	char	src[20] = "world!";
+	unsigned int	size = 30;// the value in dest[]
+
+	printf("Len of str tried to create: %u\n", ft_strlcat(dest, src, size));//return value
+	printf("Concatenated string: %s\n", dest);
+}
+//return 12 bcz dest_len+src_len = 6 + 6 from "Hello + "World!"
