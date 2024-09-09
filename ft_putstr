@@ -1,0 +1,19 @@
+#include <unistd.h>
+
+void	ft_putstr(char *str)
+{
+	unsigned int	i;
+
+	i = 0;
+	while ( str[i] != '\0')
+	{
+		write (1, &str[i], 1);// '&' gives address. str[i] is incorrect bcz its a type of char while the Q wants a pointer
+		str++;
+	}
+}
+
+int	main(void)
+{
+	char	str[] = "mon";
+	ft_putstr(str);
+}
