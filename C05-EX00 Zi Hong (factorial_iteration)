@@ -1,0 +1,27 @@
+return number (which is the value of factorial of the parameter)
+no factorial for negative --> invalid will return 0
+
+int	ft_iterative_factorial(int nb)
+{
+	int	res;//res is used to accumulate the result of the factorial calculation
+	int	count;//count is used as the iterator to traverse through each integer from 1 to nb.
+
+	if (nb < 0)
+	{
+		return (0);
+	}
+	res = 1;//res & count = 1 bcz factorial of 0 = 1
+	count = 1;//min fact res is 1 , we increment based on dat
+	while (count <= nb)
+	{
+		res *= count++;
+	}
+	return (res);
+}
+
+#include <stdio.h>
+
+int main()
+{
+	printf("%d ", ft_iterative_factorial(9));
+}
