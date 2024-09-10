@@ -1,0 +1,28 @@
+int	ft_iterative_factorial(int nb)
+{
+	int	i;
+
+	i = 1;
+	if (nb < 0)
+		return (0);
+	else if (nb == 0)// == bcz not an assignment but equality
+		return (1);
+	while (nb > 0)
+	{
+		i *= nb--;// instead of nb - 1
+	}	
+	return (i);
+}
+
+/*#include <stdio.h>
+int	main(void)
+{
+	printf("factorial of 0 = %d\n", ft_iterative_factorial(0));
+	printf("factorial of 1 = %d\n", ft_iterative_factorial(1));
+	printf("factorial of 5 = %d\n", ft_iterative_factorial(5));
+	printf("factorial of -7 = %d\n", ft_iterative_factorial(-7));
+}*/
+//if prnt more than one thing , rmb to put \n
+// line 2 alternative
+i = i * nb;
+nb--;
