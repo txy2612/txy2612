@@ -1,0 +1,19 @@
+int	ft_iterative_factorial(int nb)
+{
+	int	i;
+
+	i = 1;
+	if (nb < 0)
+		return (0);
+	while (nb > 0)//nonid to include nb == 0, bcz when nb = 0, return i = 1(as assigned)
+	{
+		i = i * nb;
+		nb--;
+	}
+	return (i);
+}
+
+int	main()
+{
+	printf("%i", ft_iterative_factorial(5));
+}
