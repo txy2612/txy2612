@@ -1,0 +1,25 @@
+int	ft_sqrt(int nb)
+{
+	int	i;
+
+	i = 0;
+	if (nb < 0)
+		return (0);
+	while (i * i <= nb)
+	{
+		if (i *i == nb)
+			return(i);
+		i++;// ..++ or ..-- is always the last line in a while loop
+	}
+	return (0);//if its irrational , return 0
+}
+
+#include <stdio.h>
+int	main(void)
+{
+	printf("Sqroot of 25 = %d\n", ft_sqrt(25));
+	printf("Sqroot of 100 = %d\n", ft_sqrt(100));
+	printf("Sqroot of 0 = %d\n", ft_sqrt(0));
+	printf("Sqroot of -1 = %d\n", ft_sqrt(-1));
+	printf("Sqroot of 2 = %d\n", ft_sqrt(2));
+}//pritntf > 1, add \n after %
