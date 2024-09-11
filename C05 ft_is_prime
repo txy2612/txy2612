@@ -1,0 +1,33 @@
+int	ft_is_prime(int nb)
+{
+	int	i;
+	unsigned int	counter;
+
+	i = 1;// bcz all no. can be divided by '1'
+	counter = 0;// if counter counts 2 (1 and itself) --> prime --> return 1
+	if (nb < 2 )
+		return (0);// negative X prime, 0 & 1 also not prime
+	while (i <= nb / 2)// Let nb = 44, nb/2 = 22, 44/ any no. > 22 wont be an integer
+	{
+		if (nb % i == 0)//if divisible
+			counter++;//counter ++
+		i++;//move on to the next no.
+	}
+	if (counter == 2)
+		return (1);
+	else 
+		return (0);
+}
+
+#include <stdio.h>
+int main(void)
+{
+	int	tests[] = {-5, 0, 1 ,2, 5, 11, 20, 12345678};
+	int	i;
+
+	for (i = 0; i <(sizeof(tests) / sizeof(tests[0])); i++)
+	{
+		int	number = tests[i];
+		printf(" test number : %d, return %d", number, ft_is_prime(number));
+	}
+}
