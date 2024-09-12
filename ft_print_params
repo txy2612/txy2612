@@ -1,0 +1,21 @@
+#include <unistd.h>
+
+int	main(int ac, char *av[])//ac = argument counter, av = argument vector, ac will be determined by the system , theres nonid to initialise a value for it
+{
+	int	 i;
+	int	c_curr;
+
+	c_curr = 1;
+	while (c_curr < ac)
+	{
+		i = 0;//reset the index to 0 b4 pprinting the next arg
+		while (av[c_curr][i] != '\0')//dun forget to out [c_curr]
+		{
+			write (1, &av[c_curr][i], 1);
+			i++;
+		}
+		write (1, "\n", 1);// print a newline b4 the next arg
+		c_curr++;
+	}
+	return (0);
+}
