@@ -1,0 +1,20 @@
+#include <unistd.h>
+int	main(int ac, char *av[])
+{
+	int	i;
+	int	cc;
+
+	cc = ac -1;//start from last arg, the last one always have an index of size -1
+	while (cc > 0)//skip arg[0] (a.out)
+	{
+		i = 0;
+		while (av[cc][i] != '\0')
+		{
+			write (1, &av[cc][i], 1);
+			i++;
+		}
+		write (1, "\n", 1);
+		cc--;
+	}
+	return (0);
+}
